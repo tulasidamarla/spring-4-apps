@@ -7,7 +7,8 @@ byType
 constructor
 No
 
-Ex
+Ex:
+
 &lt;bean name="customerRepository" class="com.springsample.repository.CustomerRepositoryImpl" /&gt;
 
 &lt;bean name="customerService" class="com.springsample.service.CustomerServiceImpl" autowire="byName"/&gt;
