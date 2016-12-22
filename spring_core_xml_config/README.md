@@ -8,9 +8,9 @@ constructor
 No
 
 Ex
-<bean name="customerRepository" class="com.springsample.repository.CustomerRepositoryImpl" />:
+&lt;bean name="customerRepository" class="com.springsample.repository.CustomerRepositoryImpl" /&gt;
 
-<bean name="customerService" class="com.springsample.service.CustomerServiceImpl" autowire="byName"/>
+&lt;bean name="customerService" class="com.springsample.service.CustomerServiceImpl" autowire="byName"/&gt;
 
 Note: If you have two beans of same type when using byType, you will get an exception.
 
