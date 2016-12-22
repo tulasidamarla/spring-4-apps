@@ -23,5 +23,3 @@ spring-expression
 This example demo spring using XML configuration. XML configuration is the first approach when spring started. There is a sepeartion of concerns that happen when configuration code is removed from code and placed in a seperate XML. This helps in changing your configuration file for different environments without recompiling the code. This technique is called seperation of concerns.
 
 Spring provides different name spaces that aid in configuration and validation of the application.
-
-    
