@@ -8,6 +8,7 @@ so, applicationContext.xml file is replaced by class with @Configuration annotat
 @Configuration
 
 public class AppConfig {
+
 	@Bean(name = "customerService")
 	public CustomerService getCustomerService(){
 		CustomerService service = new CustomerServiceImpl();
