@@ -90,6 +90,9 @@ private String dbUserName;
 To Use the properties inside Java code using Java configuration,
 ----------------------------------------------------------------
 
+Java Configuration
+-------------------
+
 @Configuration
 
 @ComponentScan(basePackages={"com.test"})
