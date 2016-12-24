@@ -6,6 +6,7 @@ so, applicationContext.xml file is replaced by class with @Configuration annotat
 
 
 @Configuration
+
 public class AppConfig {
 
 	@Bean(name = "customerService")
@@ -24,7 +25,9 @@ public class AppConfig {
 For Autowiring, Use ComponentScan Annotation like this:
 
 @Configuration
+
 @ComponentScan(basePackages = {"com.springsample"})
+
 public class AppConfigAutowire {
 	
 }
