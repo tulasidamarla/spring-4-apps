@@ -23,6 +23,7 @@ public class AppConfig {
 }
 
 For Autowiring, Use ComponentScan Annotation like this:
+-------------------------------------------------------
 
 @Configuration
 
@@ -32,6 +33,7 @@ public class AppConfigAutowire {
 	
 }
 
+Note: Spring can only Autowire other spring beans. To represent any bean in the application as a spring bean, it needs to be annotated with any of the stereotype annotations like @Component, @Service or @Repository.
 
 Bean Scopes
 -----------
