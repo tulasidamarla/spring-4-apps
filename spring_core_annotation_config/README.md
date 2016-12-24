@@ -37,6 +37,7 @@ Bean Scopes
 -----------
 Spring uses some standard design patterns like (Singleton, factory etc..) to eliminate developer to write some design patterns manually and run into any issues. There are 5 bean scopes provided by spring.
 
+
 Singleton (one object for the entire context. This is the default behavior)
 Prototype (returns a different object for every invocation)
 Request
@@ -58,3 +59,48 @@ or
 @Scope(ConfiguraleBeanFactory.SCOPE_SINGLETON)
 
 class CustomerServiceImpl implements CustomerService{}
+
+
+Loading Properties
+------------------
+Properties files can be loaded into the application using XML or Java based configuration. 
+
+XML Configuration
+-----------------
+<context:property-placeholder location="app.properties"/>
+<bean name="customerRepository" class="com.test.CustomerRepositoryImpl">
+	<property name="dbUserName" value="${dbUserName}"/>
+</bean>
+
+To Use the properties inside Java code using XML configuration,
+---------------------------------------------------------------
+XML Configuration
+-----------------
+<context:property-placeholder location="app.properties"/>
+
+<context: annotation-config>
+
+Java Code
+---------
+
+@Value("${dbUserName}")
+
+private String dbUserName;
+
+To Use the properties inside Java code using Java configuration,
+----------------------------------------------------------------
+
+@Configuration
+
+@ComponentScan(basePackages={"com.test"})
+
+@PropertySource("app.properties")
+
+public class AppConfig {
+	
+	@Bean
+	public static PropertySourcesPlaceholderConfigurer getPropertySourcesPlaceholderConfigurer(){
+		return new PropertySourcesPlaceholderConfigurer();
+	}
+}
+
