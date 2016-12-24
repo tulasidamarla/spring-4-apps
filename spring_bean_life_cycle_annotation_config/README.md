@@ -2,7 +2,7 @@ Spring framework given 5 ways to control the life cycle events of a bean.
 
 1)InitializingBean(void afterPropertiesSet()) and DisposableBean(void destroy()) callback interfaces.
 
-2)There are no of Aware interfaces for specific behaviors. They are
+2)There are no of Aware interfaces for specific behaviors. They are <br/>
 	a)ApplicationContextAware <br/>
 	b)ApplicationEventPublisherAware
 	c)BeanClassLoaderAware
