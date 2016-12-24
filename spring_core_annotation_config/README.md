@@ -76,9 +76,9 @@ To Use the properties inside Java code using XML configuration,
 ---------------------------------------------------------------
 XML Configuration
 -----------------
-<context:property-placeholder location="app.properties"/>
+&lt;context:property-placeholder location="app.properties"/&gt;
 
-<context: annotation-config>
+&lt;context: annotation-config/&gt;
 
 Java Code
 ---------
