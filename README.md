@@ -1,4 +1,3 @@
-This is an improved version of the typical 3 layered monolith application developed using spring.
 
 The main advantage of using spring is to remove configuration code from your application.
 
