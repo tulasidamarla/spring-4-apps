@@ -1,6 +1,4 @@
-Spring helps in reducing the configuration code using autowiring.
-
-Spring Autowiring can be set in 4 ways.
+Spring helps in reducing the configuration code using autowiring. Spring Autowiring can be set in 4 ways.
   
     byName
     byType
