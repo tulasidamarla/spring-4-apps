@@ -12,12 +12,12 @@ To add Spring Framework to the code, Just copy the maven dependency from spring 
 
 Adding the depedency to pom.xml, will download the following maven dependencies to the project.
 
-spring-context
-spring-aop
-spring-beans
-spring-core
-commons-logging
-spring-expression
+    spring-context
+    spring-aop
+    spring-beans
+    spring-core
+    commons-logging
+    spring-expression
 
 This example demo spring using XML configuration. XML configuration is the first approach when spring started. There is a sepeartion of concerns that happen when configuration code is removed from code and placed in a seperate XML. This helps in changing your configuration file for different environments without recompiling the code. This technique is called seperation of concerns.
 
