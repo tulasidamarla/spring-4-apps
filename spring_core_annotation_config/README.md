@@ -4,34 +4,28 @@ In this we have no application context xml. But we use Java to configure our app
 
 so, applicationContext.xml file is replaced by class with @Configuration annotation to bootstrap the application. @Configuration is a class level annotation. Spring Beans are defined with @Bean annotation. @Bean is at method level. For ex,
 
+	@Configuration
+	public class AppConfig {
+		@Bean(name = "customerService")
+		public CustomerService getCustomerService(){
+			CustomerService service = new CustomerServiceImpl();
+			service.setCustomerRepository(getCustomerRepository());
+			return service;
+		}
 
-@Configuration
-
-public class AppConfig {
-
-	@Bean(name = "customerService")
-	public CustomerService getCustomerService(){
-		CustomerService service = new CustomerServiceImpl();
-		service.setCustomerRepository(getCustomerRepository());
-		return service;
+		@Bean(name = "customerRepository")
+		public CustomerRepository getCustomerRepository() {
+			return new CustomerRepositoryImpl();
+		}
 	}
-
-	@Bean(name = "customerRepository")
-	public CustomerRepository getCustomerRepository() {
-		return new CustomerRepositoryImpl();
-	}
-}
 
 For Autowiring, Use ComponentScan Annotation like this:
 -------------------------------------------------------
 
-@Configuration
-
-@ComponentScan(basePackages = {"com.springsample"})
-
-public class AppConfigAutowire {
-	
-}
+	@Configuration
+	@ComponentScan(basePackages = {"com.springsample"})
+	public class AppConfigAutowire {
+	}
 
 Note: Spring can only Autowire other spring beans. To represent any bean in the application as a spring bean, it needs to be annotated with any of the stereotype annotations like @Component, @Service or @Repository.
 
@@ -48,19 +42,15 @@ Global
 
 Request,Session,Global are only used with web aware applications. Singleton is the default. To use these, For ex:
 
-@Service("customerService")
+	@Service("customerService")
+	@Scope("singleton")
+	class CustomerServiceImpl implements CustomerService{}
 
-@Scope("singleton")
+or can use an ENUM like this:
 
-class CustomerServiceImpl implements CustomerService{}
-
-or 
-
-@Service("customerService")
-
-@Scope(ConfiguraleBeanFactory.SCOPE_SINGLETON)
-
-class CustomerServiceImpl implements CustomerService{}
+	@Service("customerService")
+	@Scope(ConfiguraleBeanFactory.SCOPE_SINGLETON)
+	class CustomerServiceImpl implements CustomerService{}
 
 
 Loading Properties
@@ -69,25 +59,22 @@ Properties files can be loaded into the application using XML or Java based conf
 
 XML Configuration
 -----------------
-<context:property-placeholder location="app.properties"/>
-<bean name="customerRepository" class="com.test.CustomerRepositoryImpl">
-	<property name="dbUserName" value="${dbUserName}"/>
-</bean>
+	<context:property-placeholder location="app.properties"/>
+	<bean name="customerRepository" class="com.test.CustomerRepositoryImpl">
+		<property name="dbUserName" value="${dbUserName}"/>
+	</bean>
 
 To Use the properties inside Java code using XML configuration,
 ---------------------------------------------------------------
 XML Configuration
 -----------------
-&lt;context:property-placeholder location="app.properties"/&gt;
-
-&lt;context: annotation-config/&gt;
+	<context:property-placeholder location="app.properties"/>
+	<context: annotation-config>
 
 Java Code
 ---------
-
-@Value("${dbUserName}")
-
-private String dbUserName;
+	@Value("${dbUserName}")
+	private String dbUserName;
 
 To Use the properties inside Java code using Java configuration,
 ----------------------------------------------------------------
@@ -95,17 +82,13 @@ To Use the properties inside Java code using Java configuration,
 Java Configuration
 -------------------
 
-@Configuration
-
-@ComponentScan(basePackages={"com.test"})
-
-@PropertySource("app.properties")
-
-public class AppConfig {
-	
-	@Bean
-	public static PropertySourcesPlaceholderConfigurer getPropertySourcesPlaceholderConfigurer(){
-		return new PropertySourcesPlaceholderConfigurer();
+	@Configuration
+	@ComponentScan(basePackages={"com.test"})
+	@PropertySource("app.properties")
+	public class AppConfig {
+		@Bean
+		public static PropertySourcesPlaceholderConfigurer getPropertySourcesPlaceholderConfigurer(){
+			return new PropertySourcesPlaceholderConfigurer();
+		}
 	}
-}
 
