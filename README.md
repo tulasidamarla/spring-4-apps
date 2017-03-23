@@ -3,9 +3,7 @@ The main advantage of using spring is to remove configuration code from your app
 
 Why is configuration code is such a bad thing in your application?
 
-Configuration make things harder to move application to different environments.Also, we 
-do only unit tests because its very hard to test our code base because of the complexity.
-It is actually not the complexity of the code that makes testing the application hard, but the way it was written. It means the configuration is hard. References like JNDI, Jdbc etc. These configuration code often have nothing to do with normal flow of business logic.
+Configuration make things harder to move application to different environments.Also, we do only unit tests because its very hard to test(Integration) our code base because of the complexity. It is actually not the complexity of the code that makes testing the application hard, but the way it was written. It means the configuration is hard. References like JNDI, Jdbc etc. These configuration code often have nothing to do with normal flow of business logic.
 
 To add Spring Framework to the code, Just copy the maven dependency from spring website 
 (http://projects.spring.io/spring-framework/) and add it to pom.xml.
